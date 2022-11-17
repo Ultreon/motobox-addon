@@ -6,12 +6,44 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
+static String terraformersUrl() {
+    def url = "https://maven.terraformersmc.com/"
+    def conn = new URL(url).openConnection()
+    conn.connect()
+    url = conn.getResponseCode() == 521 ? "https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases" : url
+    return url
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/motobox.accesswidener")
+}
+
 repositories {
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
+    mavenLocal()
+    maven {
+        name 'Gegy'
+        url 'https://maven.gegy.dev'
+    }
+
+    maven { url "https://maven.gegy.dev/" }
+    maven { url terraformersUrl() }
+    maven { url "https://aperlambda.github.io/maven" }
+    maven { url "https://storage.googleapis.com/devan-maven/" }
+    maven { url "https://api.modrinth.com/maven" }
+    maven { url "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
 }
 
 dependencies {
@@ -22,6 +54,20 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modImplementation "curse.maven:modmenu-308702:3902967"
+    modImplementation "curse.maven:automobility-658286:4085754"
+    modImplementation "curse.maven:midnigtcontrols-621768:4054105"
+    modImplementation "curse.maven:midnigtlib-488090:4059589"
+
+    api('org.aperlambda:lambdajcommon:1.8.1') {
+        exclude group: 'com.google.code.gson'
+        exclude group: 'com.google.guava'
+    }
+
+    modImplementation "net.devtech:arrp:${project.arrp_version}"
+    modImplementation "maven.modrinth:jsonem:${project.jsonem_version}"
+    modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
 }
 
 processResources {

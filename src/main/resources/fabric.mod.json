@@ -12,6 +12,7 @@
     "website": "https://ultreon.github.io/web/",
     "repo": "https://github.com/Ultreon/motobox-updated"
   },
+  "accessWidener": "motobox.accesswidener",
   "license": "MIT",
   "icon": "assets/motobox/icon.png",
   "environment": "*",
