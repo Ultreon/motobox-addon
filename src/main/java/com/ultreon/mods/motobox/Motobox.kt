@@ -1,18 +1,18 @@
-package com.ultreon.mods.motobox;
+package com.ultreon.mods.motobox
 
-import com.ultreon.mods.motobox.items.ModItems;
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
+import com.ultreon.mods.motobox.items.ModItems.init
+import net.fabricmc.api.ModInitializer
+import net.minecraft.util.Identifier
 
-public class Motobox implements ModInitializer {
-    private static final String MOD_ID = "motobox";
+object Motobox : ModInitializer {
+    private const val modId = "motobox"
 
-    public static Identifier id(String path) {
-        return new Identifier(MOD_ID, path);
+    override fun onInitialize() {
+        init()
     }
 
-    @Override
-    public void onInitialize() {
-        ModItems.init();
+    @JvmStatic
+    fun id(path: String?): Identifier {
+        return Identifier(modId, path)
     }
 }

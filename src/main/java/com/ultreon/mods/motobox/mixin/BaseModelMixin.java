@@ -22,7 +22,7 @@ public class BaseModelMixin {
 
     @SuppressWarnings("ConstantConditions")
     @Inject(at = @At("RETURN"), method = "render")
-    private void motobox$injectRender$2(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
+    private void motoVoid$injectRender$2(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
         if (((Object) this) instanceof MotorbikeFrameModel) {
             matrices.pop();
         }

@@ -1,18 +1,17 @@
-package com.ultreon.mods.motobox.automobile;
+package com.ultreon.mods.motobox.automobile
 
-import io.github.foundationgames.automobility.automobile.WheelBase;
+import io.github.foundationgames.automobility.automobile.WheelBase
 
-@SuppressWarnings("unused")
-public class NewWheelBase {
-    public static WheelBase offset(float separationLong, float separationWide, float offset) {
-        return new OffsetWheelBase(separationLong, separationWide, offset);
+object NewWheelBase {
+    fun offset(separationLong: Float, separationWide: Float, offset: Float): WheelBase {
+        return OffsetWheelBase(separationLong, separationWide, offset)
     }
 
-    public static WheelBase bicycle(float separationLong) {
-        return new BicycleWheelBase(separationLong);
+    fun bicycle(separationLong: Float): WheelBase {
+        return BicycleWheelBase(separationLong)
     }
 
-    public static WheelBase bicycleOffset(float separationLong, float offset) {
-        return new OffsetBicycleWheelBase(separationLong, offset);
+    fun bicycleOffset(separationLong: Float, offset: Float): WheelBase {
+        return OffsetBicycleWheelBase(separationLong, offset)
     }
 }

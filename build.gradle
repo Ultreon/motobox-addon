@@ -1,5 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'org.jetbrains.kotlin.jvm' version "1.7.10"
     id 'maven-publish'
 }
 
@@ -68,6 +69,8 @@ dependencies {
     modImplementation "net.devtech:arrp:${project.arrp_version}"
     modImplementation "maven.modrinth:jsonem:${project.jsonem_version}"
     modImplementation("dev.lambdaurora:spruceui:${project.spruceui_version}")
+
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.8.6+kotlin.1.7.21")
 }
 
 processResources {

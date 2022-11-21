@@ -18,10 +18,16 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.ultreon.mods.motobox.client.MotoboxClient"
+      {
+        "adapter": "kotlin",
+        "value": "com.ultreon.mods.motobox.client.MotoboxClient"
+      }
     ],
     "main": [
-      "com.ultreon.mods.motobox.Motobox"
+      {
+        "adapter": "kotlin",
+        "value": "com.ultreon.mods.motobox.Motobox"
+      }
     ]
   },
   "mixins": [
@@ -30,6 +36,7 @@
   "depends": {
     "fabricloader": ">=0.14.10",
     "fabric": "*",
-    "minecraft": "1.19.1"
+    "minecraft": "1.19.1",
+    "fabric-language-kotlin": ">=1.8.6+kotlin.1.7.21"
   }
 }

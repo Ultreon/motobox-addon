@@ -1,2 +1,3 @@
 accessWidener v2 named
 extendable method io/github/foundationgames/automobility/automobile/render/BaseModel render (Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;IIFFFF)V
+accessible field  io/github/foundationgames/automobility/entity/AutomobileEntity$Displacement verticalTarget F
