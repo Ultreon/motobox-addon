@@ -1,11 +1,8 @@
+@file:Suppress("unused")
+
 package com.ultreon.mods.motobox.util
 
-import net.minecraft.util.math.BlockPos
-import net.minecraft.util.math.Vec2f
-import net.minecraft.util.math.Vec3d
-import net.minecraft.util.math.Vec3f
-import net.minecraft.util.math.Vec3i
-import net.minecraft.util.math.Vector4f
+import net.minecraft.util.math.*
 
 fun vec(x: Float, y: Float, z: Float, w: Float): Vector4f {
     return Vector4f(x, y, z, w)

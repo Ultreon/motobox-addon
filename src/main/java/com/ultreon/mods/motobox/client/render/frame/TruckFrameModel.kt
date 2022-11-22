@@ -9,18 +9,21 @@ import net.minecraft.client.render.entity.EntityRendererFactory
 import net.minecraft.client.render.entity.model.EntityModel
 import net.minecraft.client.render.entity.model.EntityModelLayer
 import net.minecraft.client.util.math.MatrixStack
-import net.minecraft.util.Identifier
 import java.util.function.Function
 
-class TruckFrameModel(root: ModelPart) :
-    EntityModel<AutomobileEntity>(Function { texture: Identifier? -> RenderLayer.getEntityTranslucent(texture) }) {
+/**
+ * Made with Blockbench 4.5.2
+ * Exported for Minecraft version 1.17 - 1.18 with Mojang mappings
+ * Paste this class into your mod and generate all required imports
+ */
+class TruckFrameModel(root: ModelPart) : EntityModel<AutomobileEntity>(Function(RenderLayer::getEntityTranslucent)) {
     private val bone10: ModelPart
 
     init {
         bone10 = root.getChild("bone10")
     }
 
-    constructor(context: EntityRendererFactory.Context) : this(context.getPart(modelLayer)) {}
+    constructor(context: EntityRendererFactory.Context) : this(context.getPart(modelLayer))
 
     override fun setAngles(
         entity: AutomobileEntity,
@@ -54,12 +57,12 @@ class TruckFrameModel(root: ModelPart) :
         // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
         @JvmField
         val modelLayer = EntityModelLayer(Motobox.id("frame_truck"), "main")
-        private const val translate = 1.1
+
         @JvmStatic
         fun createBodyLayer(): TexturedModelData {
-            val meshdefinition = ModelData()
-            val partdefinition = meshdefinition.root
-            val bone10 = partdefinition.addChild(
+            val modelData = ModelData()
+            val root = modelData.root
+            val bone10 = root.addChild(
                 "bone10",
                 ModelPartBuilder.create().uv(72, 98).cuboid(22.5f, -9.0f, -16.0f, 5.5f, 4.0f, 32.0f, Dilation(0.0f))
                     .uv(106, 31).cuboid(23.25f, -5.0f, -16.0f, 5.0f, 3.0f, 32.0f, Dilation(0.25f, 0f, 0f))
@@ -154,7 +157,7 @@ class TruckFrameModel(root: ModelPart) :
                     .cuboid(7.8272f, -1.7072f, -12.0f, 21.0f, 2.0f, 28.0f, Dilation(0.0f, 0.25f, 0f)),
                 ModelTransform.of(-1.0f, -14.5f, -2.0f, 0.0f, 0.0f, 0.0873f)
             )
-            return TexturedModelData.of(meshdefinition, 256, 256)
+            return TexturedModelData.of(modelData, 256, 256)
         }
     }
 }

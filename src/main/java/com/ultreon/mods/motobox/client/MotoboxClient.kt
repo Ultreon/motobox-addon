@@ -12,8 +12,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents.AfterEntiti
 import net.minecraft.client.model.*
 import net.minecraft.client.render.*
 
+@Suppress("unused")
 @Environment(EnvType.CLIENT)
-class MotoboxClient : ClientModInitializer {
+object MotoboxClient : ClientModInitializer {
     override fun onInitializeClient() {
         MotoboxModels.init()
         WorldRenderEvents.AFTER_ENTITIES.register(AfterEntities { context: WorldRenderContext ->
