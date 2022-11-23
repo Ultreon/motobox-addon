@@ -50,7 +50,7 @@ class MotorbikeFrameModel(root: ModelPart) : EntityModel<AutomobileEntity>(Funct
 
     companion object {
         // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-        val modelLayer = EntityModelLayer(motoboxId("custom_model"), "main")
+        val modelLayer = EntityModelLayer(motoboxId("frame_motorbike"), "main")
         fun createBodyLayer(): TexturedModelData {
             val modelData = ModelData()
             val root = modelData.root
